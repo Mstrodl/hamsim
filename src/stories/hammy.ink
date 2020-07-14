@@ -36,7 +36,7 @@ You were blocked # Note
 
 VAR annoyance_count = 0
 ===directions===
-{Anyways, how exactly do I get to your place?|Okay, and then what?}
+{Anyways, how exactly do I get to your place?|Okay, and then what?} # Character
 + [Go left]
 {So you'll want to take a left|Then a left}
 + [Go right]

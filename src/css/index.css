@@ -233,3 +233,7 @@ body {
     font-size: 1.5em;
     margin: 0.35em 1em
 }
+
+body {
+    font-family: Noto Sans, Segoe UI, sans-serif;
+}
