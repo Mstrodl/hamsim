@@ -1,0 +1,235 @@
+.text-message .content {
+  border-radius: 1.25em;
+  padding: 0.55em 0.65em;
+  display: inline-block;
+  max-width: 50vw;
+  overflow-wrap: break-word;
+}
+
+.text-message {
+  display: block;
+  clear: both;
+  position: relative;
+}
+.character-text {
+  margin: 0.35em 0.45em;
+}
+
+.player-text .text-wrap {
+  float: right;
+  margin: 0.35em 0.45em;
+}
+
+.player-text .content {
+  background-color: #389efb;
+  color: #fff;
+  text-align: right;
+  margin-right: 2.5em;
+}
+.character-text .content {
+  background-color: #e5e4ea;
+  color: #111;
+  text-align: left;
+  margin-left: 2.5em;
+}
+
+.input-chips {
+  clear: both;
+}
+.input-chips.has-children {
+    border-top: solid 1px #aaa;
+    background: #ccc;
+}
+
+.player-text .text-wrap {
+  position: relative;
+}
+
+.text-message img.avatar {
+  border-radius: 100%;
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  bottom: 0;
+}
+
+.player-text img.avatar {
+  right: 0;
+}
+
+.typing {
+  height: 1em;
+}
+@keyframes {
+  from {
+    background: hsla(250, 12%, 10%, 1);
+  }
+  to {
+    background: hsla(250, 12%, 95%, 1);
+  }
+}
+.typer {
+  background: hsla(250, 12%, 64%, 1);
+  animation: infinite linear 0.3s;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 0.25em 0.125em;
+}
+.typing-2 {
+  animation-delay: 0.1s;
+}
+.typing-3 {
+  animation-delay: 0.2s;
+}
+
+.input-chip {
+  background: #389efb;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 1em;
+  max-height: 2em;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  margin: 0 0.5em;
+  flex-shrink: 0;
+}
+
+.input-chips {
+  overflow-x: auto;
+  display: flex;
+  padding: 0.5em 0.125em;
+}
+
+.messages {
+  overflow: auto;
+  flex: 1 1;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.input-chips,
+.chat .bar {
+  flex-shrink: 0;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+.note-message {
+  color: #595959;
+  text-align: center;
+  margin: 0.5em;
+  clear: both;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+.message-image {
+  max-width: 50vw;
+  border-radius: 0.5em;
+  margin-bottom: -0.125em;
+}
+.character-text-wrap .message-image {
+  margin-left: 3em;
+}
+.player-text-wrap .message-image {
+  float: right;
+  margin-right: 3em;
+}
+
+.super-text-wrap {
+  clear: both;
+}
+
+@keyframes kinetic {
+    from {
+	transform: rotate(-25deg);
+	margin: 0 0.5em;
+    }
+    to {
+	transform: rotate(25deg);
+	margin: 0.25em 0;
+    }
+}
+
+.kinetic .child {
+    display: inline-block;
+    color: #ff0000;
+    font-weight: 800;
+    font-size: 1.25em;
+    font-family: serif;
+    margin: 0.25em 0.5em;
+    animation: kinetic infinite 0.5s;
+}
+
+
+.name {
+    font-weight: 500;
+    margin: 1em 1em;
+}
+.bar {
+    height: 3em;
+    box-shadow: 0 0 0 1px rgba(6,6,7,0.08), 0 1px 0 rgba(4,4,5,0.2), 0 1px 0 rgba(6,6,7,0.1), 0 1.5px 0 rgba(6,6,7,0.025), 0 2px 0 rgba(6,6,7,0.025);
+    z-index: 1;
+}
+
+
+.chat-avatar img {
+    height: 3.5em;
+}
+
+.chat-name {
+    margin: 1.125em 1em;
+}
+.right-decoration {
+    margin: 1.35em 0.5em;
+}
+
+.chat-button {
+    height: 3.5em;
+    display: flex;
+    border-bottom: solid 1px #ddd;
+    border-top: solid 1px #ddd;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+.chats {
+    background: #ddd;
+}
+
+.chat-top {
+    font-size: 1.5em;
+    padding: 0.5em 0.25em;
+    box-shadow: 0 0 0 1px rgba(6,6,7,0.08), 0 1px 0 rgba(4,4,5,0.2), 0 1px 0 rgba(6,6,7,0.1), 0 1.5px 0 rgba(6,6,7,0.025), 0 2px 0 rgba(6,6,7,0.025);
+}
+
+.bar {
+    display: flex;
+}
+
+.back {
+    position: relative;
+    padding: 0 1em;
+    cursor: pointer;
+}
+.back svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.name {
+    font-size: 1.5em;
+    margin: 0.35em 1em
+}
