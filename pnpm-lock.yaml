@@ -8,6 +8,8 @@ dependencies:
   react-dom: 16.13.1_react@16.13.1
 devDependencies:
   '@babel/core': 7.10.4
+  '@babel/plugin-transform-react-jsx': 7.10.4_@babel+core@7.10.4
+  '@babel/plugin-transform-runtime': 7.10.5_@babel+core@7.10.4
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.10.4:
@@ -55,8 +57,7 @@ packages:
       integrity: sha512-toLIHUIAgcQygFZRAQcsLQV3CBuX6yOIru1kJk/qqqvcRmZrYe6WavZTSG+bB8MxhnL9YPf+pKQfuiP161q7ng==
   /@babel/helper-annotate-as-pure/7.10.4:
     dependencies:
-      '@babel/types': 7.10.4
-    dev: false
+      '@babel/types': 7.10.5
     resolution:
       integrity: sha512-XQlqKQP4vXFB7BN8fEEerrmYvHp3fK/rBkRFz9jaJbzK0B1DSfej9Kc7ZzE8Z/OnId1jpJdNAZ3BFQjWG68rcA==
   /@babel/helper-builder-binary-assignment-operator-visitor/7.10.4:
@@ -74,11 +75,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-LyacH/kgQPgLAuaWrvvq1+E7f5bLyT8jXCh7nM67sRsy2cpIGfgWJ+FCnAKQXfY+F0tXUaN6FqLkp4JiCzdK8Q==
+  /@babel/helper-builder-react-jsx-experimental/7.10.5:
+    dependencies:
+      '@babel/helper-annotate-as-pure': 7.10.4
+      '@babel/helper-module-imports': 7.10.4
+      '@babel/types': 7.10.5
+    resolution:
+      integrity: sha512-Buewnx6M4ttG+NLkKyt7baQn7ScC/Td+e99G914fRU8fGIUivDDgVIQeDHFa5e4CRSJQt58WpNHhsAZgtzVhsg==
   /@babel/helper-builder-react-jsx/7.10.4:
     dependencies:
       '@babel/helper-annotate-as-pure': 7.10.4
-      '@babel/types': 7.10.4
-    dev: false
+      '@babel/types': 7.10.5
     resolution:
       integrity: sha512-5nPcIZ7+KKDxT1427oBivl9V9YTal7qk0diccnh7RrcgrT/pGFOjgGw1dgryyx1GvHEpXVfoDF6Ak3rTiWh8Rg==
   /@babel/helper-compilation-targets/7.10.4_@babel+core@7.10.4:
@@ -159,7 +166,7 @@ packages:
       integrity: sha512-m5j85pK/KZhuSdM/8cHUABQTAslV47OjfIB9Cc7P+PvlAoBzdb79BGNfw8RhT5Mq3p+xGd0ZfAKixbrUZx0C7A==
   /@babel/helper-module-imports/7.10.4:
     dependencies:
-      '@babel/types': 7.10.4
+      '@babel/types': 7.10.5
     resolution:
       integrity: sha512-nEQJHqYavI217oD9+s5MUBzk6x1IlvoS9WTPfgG43CbMEeStE0v+r+TucWdx8KFGowPGvyOkDT9+7DHedIDnVw==
   /@babel/helper-module-transforms/7.10.4:
@@ -179,7 +186,6 @@ packages:
     resolution:
       integrity: sha512-n3UGKY4VXwXThEiKrgRAoVPBMqeoPgHVqiHZOanAJCG9nQUL2pLRQirUzl0ioKclHGpGqRgIOkgcIJaIWLpygg==
   /@babel/helper-plugin-utils/7.10.4:
-    dev: false
     resolution:
       integrity: sha512-O4KCvQA6lLiMU9l2eawBPMf1xPP8xPfB3iEQw150hOVTqj/rfXz0ThTb4HEzqQfs2Bmo5Ay8BzxfzVtBrr9dVg==
   /@babel/helper-regex/7.10.4:
@@ -412,7 +418,6 @@ packages:
     dependencies:
       '@babel/core': 7.10.4
       '@babel/helper-plugin-utils': 7.10.4
-    dev: false
     peerDependencies:
       '@babel/core': ^7.0.0-0
     resolution:
@@ -765,10 +770,9 @@ packages:
     dependencies:
       '@babel/core': 7.10.4
       '@babel/helper-builder-react-jsx': 7.10.4
-      '@babel/helper-builder-react-jsx-experimental': 7.10.4
+      '@babel/helper-builder-react-jsx-experimental': 7.10.5
       '@babel/helper-plugin-utils': 7.10.4
       '@babel/plugin-syntax-jsx': 7.10.4_@babel+core@7.10.4
-    dev: false
     peerDependencies:
       '@babel/core': ^7.0.0-0
     resolution:
@@ -801,6 +805,18 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-hGsw1O6Rew1fkFbDImZIEqA8GoidwTAilwCyWqLBM9f+e/u/sQMQu7uX6dyokfOayRuuVfKOW4O7HvaBWM+JlQ==
+  /@babel/plugin-transform-runtime/7.10.5_@babel+core@7.10.4:
+    dependencies:
+      '@babel/core': 7.10.4
+      '@babel/helper-module-imports': 7.10.4
+      '@babel/helper-plugin-utils': 7.10.4
+      resolve: 1.17.0
+      semver: 5.7.1
+    dev: true
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-tV4V/FjElJ9lQtyjr5xD2IFFbgY46r7EeVu5a8CpEKT5laheHKSlFeHjpkPppW3PqzGLAuv5k2qZX5LgVZIX5w==
   /@babel/plugin-transform-shorthand-properties/7.10.4_@babel+core@7.10.4:
     dependencies:
       '@babel/core': 7.10.4
@@ -1011,6 +1027,13 @@ packages:
       to-fast-properties: 2.0.0
     resolution:
       integrity: sha512-UTCFOxC3FsFHb7lkRMVvgLzaRVamXuAs2Tz4wajva4WxtVY82eZeaUBtC2Zt95FU9TiznuC0Zk35tsim8jeVpg==
+  /@babel/types/7.10.5:
+    dependencies:
+      '@babel/helper-validator-identifier': 7.10.4
+      lodash: 4.17.19
+      to-fast-properties: 2.0.0
+    resolution:
+      integrity: sha512-ixV66KWfCI6GKoA/2H9v6bQdbfXEwwpOdQ8cRvb4F+eyvhlaHxWFMQB4+3d9QFJXZsiiiqVrewNV0DFEQpyT4Q==
   /@fortawesome/fontawesome-common-types/0.2.29:
     dev: false
     engines:
@@ -6678,6 +6701,8 @@ packages:
       integrity: sha512-ZbotRWhF+lkjijC/VhmOT9wSgyBQ7+zr13+YLkhfsSiTriYsMzkTUFP18pFhWwBeMa5gUc1MzbhrO6/VB7c9Xg==
 specifiers:
   '@babel/core': ^7.10.4
+  '@babel/plugin-transform-react-jsx': ^7.10.4
+  '@babel/plugin-transform-runtime': ^7.10.5
   '@fortawesome/fontawesome-svg-core': ^1.2.29
   '@fortawesome/free-solid-svg-icons': ^5.13.1
   '@fortawesome/react-fontawesome': ^0.1.11

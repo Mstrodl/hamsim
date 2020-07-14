@@ -257,8 +257,8 @@ Hey, want to come with me to LARP camp? # Character
 + [Yes]
 Sure! Sounds like fun!
 So it's a date! ;) # Character
+You went on a date with Hammy, The End. # Note
 -> END
-
 + [No]
 No thanks
 Oh, that's too bad # Character

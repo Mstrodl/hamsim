@@ -14,7 +14,6 @@ const Types = {
 export function Messages({character, chat, typing}) {
   const results = chat.map((msg, index) => {
     const Element = Types[msg.type];
-    console.log("Sending message Element:", Element, msg.type);
     return (
       <Element key={index} msg={msg} character={character}>
         {msg.content}

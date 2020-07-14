@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import {ChatPicker} from "./ChatPicker.jsx";
 import {Messages} from "./Messages.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -9,8 +9,13 @@ import {InputChip} from "./InputChip.jsx";
 
 const stories = new Map();
 const storyFiles = {
-  hammy: require("../stories/hammy.json"),
+  hammy: JSON.parse(
+    require("fs")
+      .readFileSync(__dirname + "/../stories/hammy.json", "utf8")
+      .trim()
+  ),
 };
+console.log(storyFiles);
 
 function sleep(duration) {
   return new Promise((res) => setTimeout(res, duration));
@@ -122,6 +127,13 @@ export function App() {
     }
   }, [character]);
 
+  const messageRef = useRef(null);
+  useEffect(() => {
+    if (messageRef.current) {
+      messageRef.current.scrollTop = messageRef.current.scrollHeight;
+    }
+  });
+
   if (character === null || story === null) {
     return (
       <ChatPicker
@@ -145,7 +157,7 @@ export function App() {
           </div>
           <div className="name">{character}</div>
         </div>
-        <div className="messages">
+        <div className="messages" ref={messageRef}>
           <Messages typing={typing} chat={chat} character={character} />
         </div>
         <div
