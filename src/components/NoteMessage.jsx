@@ -1,8 +1,18 @@
 import React, {useContext} from "react";
 import {NoteStatus} from "../Context";
 
-export function NoteText({children}) {
-  return <div className="note-message">{children}</div>;
+export function NoteText({children, msg, setEnded}) {
+  return (
+    <div className="note-message">
+      {msg.tags.story_end ? (
+        <a href="#" onClick={() => setEnded(true)}>
+          {children}
+        </a>
+      ) : (
+        children
+      )}
+    </div>
+  );
 }
 
 export function JournalEntry({children, msg}) {

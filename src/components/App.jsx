@@ -3,19 +3,19 @@ import {ChatPicker} from "./ChatPicker.jsx";
 import {Messages} from "./Messages.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
+import {Avatar} from "../Context";
+import {AvatarPicker} from "./AvatarPicker";
+import {CreditsScroller} from "./CreditsScroller";
 
 import {Story} from "inkjs";
 import {InputChip} from "./InputChip.jsx";
 
+import hammyStory from "../stories/hammy.json";
+
 const stories = new Map();
 const storyFiles = {
-  hammy: JSON.parse(
-    require("fs")
-      .readFileSync(__dirname + "/../stories/hammy.json", "utf8")
-      .trim()
-  ),
+  hammy: hammyStory,
 };
-console.log(storyFiles);
 
 function sleep(duration) {
   return new Promise((res) => setTimeout(res, duration));
@@ -134,7 +134,26 @@ export function App() {
     }
   });
 
-  if (character === null || story === null) {
+  const [avatar, setAvatar] = useState(null);
+
+  const isEnded = story && !story.canContinue && !story.currentChoices.length;
+  const [ended, setEnded] = useState(false);
+
+  if (ended) {
+    return (
+      <CreditsScroller
+        reset={() => {
+          stories.clear();
+          setCharacter(null);
+          setEnded(false);
+        }}
+      />
+    );
+  }
+
+  if (avatar == null) {
+    return <AvatarPicker setAvatar={setAvatar} />;
+  } else if (character === null || story === null) {
     return (
       <ChatPicker
         onChange={(character) => {
@@ -158,7 +177,14 @@ export function App() {
           <div className="name">{character}</div>
         </div>
         <div className="messages" ref={messageRef}>
-          <Messages typing={typing} chat={chat} character={character} />
+          <Avatar.Provider value={{setAvatar, avatar}}>
+            <Messages
+              setEnded={setEnded}
+              typing={typing}
+              chat={chat}
+              character={character}
+            />
+          </Avatar.Provider>
         </div>
         <div
           className={

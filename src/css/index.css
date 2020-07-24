@@ -237,3 +237,68 @@ body {
 body {
     font-family: Noto Sans, Segoe UI, sans-serif;
 }
+
+.avatar-icon {
+    border-radius: 100%;
+    height: 10em;
+    width: 10em;
+    cursor: pointer;
+    margin: 0.5em;
+}
+
+.avatar-list {
+    margin: 0 1em;
+}
+
+.avatar-picker h2 {
+    background: #7c6de8;
+    color: #fff;
+    padding: 1em 0.5em;
+    text-align: center;
+}
+
+@keyframes scroll {
+    from {
+	background-position: 0 0;
+    }
+    to {
+	background-position: 120px 120px;
+    }
+}
+
+.credits {
+    background: #f8e901 url("../logo.png") repeat;
+    animation: scroll infinite linear 1s;
+    height: 100vh;
+    width: 100%;
+}
+
+.credits-jumbotron {
+    width: 60vw;
+    background: #fff;
+    transition: opacity linear 0.2s;
+    padding: 0.5em 1em;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border: solid 2px #222;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.credits-jumbotron h2 {
+    text-transform: uppercase;
+}
+
+.restart-button {
+    color: #000;
+    font-weight: 500;
+    background: #bbb;
+    padding: 0.5em;
+    border: 6px #ddd inset;
+    cursor:pointer;
+}

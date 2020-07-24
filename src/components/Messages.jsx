@@ -11,11 +11,11 @@ const Types = {
   Kinetic,
 };
 
-export function Messages({character, chat, typing}) {
+export function Messages({character, chat, typing, setEnded}) {
   const results = chat.map((msg, index) => {
     const Element = Types[msg.type];
     return (
-      <Element key={index} msg={msg} character={character}>
+      <Element key={index} msg={msg} character={character} setEnded={setEnded}>
         {msg.content}
       </Element>
     );

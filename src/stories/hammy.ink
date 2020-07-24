@@ -11,7 +11,7 @@ Hammy thought that was funny # Note
 Hey wanna play Roblox?
 "...Are you like 12?" # Character
 You were blocked # Note
--> END
+-> goto_end
 
 ===interests_leadin===
 So what sort of stuff do you like to do? # Character
@@ -23,7 +23,7 @@ VAR occupation = ""
 VAR food = ""
 ===about_that_macaroni===
 ~ food = "macaroni"
-Wow, that looks
+Wow, that looks...
 + [Lie]
 ...Great! I'm excited to try it!
 -> directions
@@ -32,7 +32,7 @@ Honestly that's kind of the most disgusting macaroni I've ever seen
 I... # Character
 I'm sorry I can't please you # Character
 You were blocked # Note
--> END
+-> goto_end
 
 VAR annoyance_count = 0
 ===directions===
@@ -44,7 +44,7 @@ VAR annoyance_count = 0
 + [Go straight]
 {Keep going forward|Now go forwards}
 
-- { annoyance_count > 30:
+- { annoyance_count > 5:
 -> dinner_date_arrival
 - else:
 ~ annoyance_count = annoyance_count + 1
@@ -66,21 +66,21 @@ Oh my god. # Character
 {food == "macaroni":
 Hammy sets down the macaroni on an overturned 5 gallon bucket with a checkerboard tablecloth draped over it. It takes all your willpower to avoid gagging. # Note
 You only eat about half of the admittedly very small amount you took before excusing yourself and vomitting into the very bucket you had been using as a table. # Note
-Hammy leaves in disgust, you die a short time later of food poisoning. The end. # Note
--> END
+Hammy leaves in disgust, you die a short time later of food poisoning. # Note
+-> goto_end
 - else:
-In the end, you got your date, although the hum of the boiler put a bit of a damper  on the evening. You agreed it probably wouldn't work out. The end. # Note
--> END
+In the end, you got your date, although the hum of the boiler put a bit of a damper  on the evening. You agreed it probably wouldn't work out. # Note
+-> goto_end
 }
 
 
 
 
 ===mac_and_cheese===
-Macaroni and cheese it is then!
+Macaroni and cheese it is then! # Character
 A few hours pass # Note
 I'm just about ready to head over to your place! # Character
-Macaroni looks yummy! # Images:mac_and_cheese # Character
+Macaroni looks yummy! # Image:mac_and_cheese # Character
 -> about_that_macaroni
 
 ===boiled_human===
@@ -94,8 +94,10 @@ Any ideas on what I should make? # Character
 How about macaroni and cheese?
 -> mac_and_cheese
 + [Human]
-How about a boiled human? -> boiled_human
+How about a boiled human?
+-> boiled_human
 + [Whatever you want]
+I don't really care to be honest, make whatever you want!
 {RANDOM(0,1):
 - 0: -> mac_and_cheese
 - 1: -> boiled_human
@@ -115,8 +117,8 @@ Oh you know... I like hanging out in the hot tub haha # Image:crockpot
 I like your hammy flakes... # Character
 Hey you should come over, we can make ham sandwiches... ;)
 Sounds like a plan, I'll get some Mayonaise # Character
-This is gross. But I guess you found an ending. Please excuse me while I vomit up some space-time. The end. # Note
--> END
+This is gross. But I guess you found an ending. Please excuse me while I vomit up some space-time. # Note
+-> goto_end
 + [Stalking!]
 I stalk people!
 -> stalking
@@ -145,11 +147,11 @@ I'd love to! Sounds like fun! # Character
 ===music===
 + I play the Saxophone
 You bring Hammy to your jazz club, the tilted pork, and show Hammy to their seat. # Note
-Hammy seems impressed, and for once you feel like you might have found the one. The end. # Note
--> END
+Hammy seems impressed, and for once you feel like you might have found the one. # Note
+-> goto_end
 + I play the Drums
-You bring Hammy to your drum circle, wearing your finest tie-dye and yet they don't seem impressed. The evening ends in failure. The end. # Note
--> END
+You bring Hammy to your drum circle, wearing your finest tie-dye and yet they don't seem impressed. The evening ends in failure. # Note
+-> goto_end
 
 
 ===larp_start===
@@ -162,6 +164,7 @@ Wow! # Character
 I'm a wizard!
 -> wizard
 + [Fighter]
+~ occupation = "fighter"
 I'm a fighter!
 Neat! I'm a Wizard! # Character
 -> larp_ask
@@ -171,7 +174,8 @@ Woah, me too! # Character
 What level are you? # Character
 + [Level 10]
 I'm level 10
-Wow, I'm level 8 -> larp_ask # Character
+Wow, I'm level 8 # Character
+-> larp_ask
 + [Level 6]
 I'm level 6
 I'm level 8,  I've just learned real magic # Character
@@ -197,8 +201,7 @@ True power, it's an incredible feeling! # Character
 Uhh sure!
 You go to the park as Hammy directed and... it seems you can't remember anything else. # Note
 ...The evening is still a success though... Whatever that means anyways # Note
-The end # Note
--> END
+-> goto_end
 
 ===cult_sacrifice===
 You meet Hammy in the park, although something seems off... # Note
@@ -215,8 +218,7 @@ You begin to feel yourself burning up, as a bright light is emitted from the suc
 And just like that, your life fades away to a close. Perhaps in some cruel kind of mercy, you were spared from the endless suffering that would soon be endured by the other inhabitants of your plane... Whatever that means. # Note
 Either way, this is a dating simulator, and although I may be an omniscient narrator, there are some things that are better unsaid. # Note
 Good night, Hamuel. # Note
-The end. # Note
--> END
+-> goto_end
 
 
 ===towel_loop===
@@ -230,8 +232,8 @@ What?! Were you stalking me? # Character
 // FBI death
 That's creepy what the heck? # Character
 I was j-
-You were reported to the authorities who promptly detained you. The end. # Note
--> END
+You were reported to the authorities who promptly detained you. # Note
+-> goto_end
 + Yes!
 You're weird... I like that # Character
 We should hang out sometime and do weird stuff in the park... # Character
@@ -257,10 +259,16 @@ Hey, want to come with me to LARP camp? # Character
 + [Yes]
 Sure! Sounds like fun!
 So it's a date! ;) # Character
-You went on a date with Hammy, The End. # Note
--> END
+You went to LARP camp with Hammy # Note
+Turns out, they were pretty cool, and you were with them ever since. # Note
+Your skills were well-appreciated by everyone in LARP camp, they had been badly in need of a good {occupation}, so you fit in perfectly. # Note
+-> goto_end
 + [No]
 No thanks
 Oh, that's too bad # Character
-In the end, you didn't talk much after this, Hammy loves LARP, and your disinterest was kind of rude. The end. # Note
+In the end, you didn't talk much after this, Hammy loves LARP, and your disinterest was kind of rude. # Note
+-> goto_end
+
+===goto_end===
+The end. # Note # story_end
 -> END
